@@ -1,0 +1,59 @@
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  .portfolio-item {
+    $portfolio-gap: 24px;
+    flex-basis: calc(50% - #{$portfolio-gap / 2});
+    display: flex;
+    flex-wrap: wrap;
+
+    .portfolio-image-wrapper {
+      .portfolio-image {
+        width: 100%;
+      }
+    }
+
+    h4 {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      color: $darkgrey;
+      margin-top: $margin4;
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.75;
+      margin-top: $margin4;
+    }
+
+    // adding margin-top except the first 2 children
+    &:not(:nth-child(-n + 2)) {
+      margin-top: $margin2;
+    }
+
+    // adding margin-right to the odd columns
+    &:nth-child(odd) {
+      margin-right: $portfolio-gap;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .portfolio-list {
+    flex-direction: column;
+    .portfolio-item {
+      // adding margin-top except the first child
+      &:not(:nth-child(-n + 1)) {
+        margin-top: $margin2;
+      }
+
+      // removing margin-right odd columns
+      &:nth-child(odd) {
+        margin-right: 0px;
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+// mobile first
+.skill-list {
+  margin-top: $margin5;
+  .skill {
+    .progress-bar {
+      height: 4px;
+      width: 100%;
+      background: $border;
+      margin-top: $margin4;
+
+      .progress-indicator {
+        height: 100%;
+        width: 0%; // jquery will set this
+        background: $highlight;
+        transition: all 0.3s ease-out;
+      }
+    }
+  }
+
+  // 2 columns
+  @media (min-width: 700px) {
+    $gap: 24px; // try to keep the number even
+    display: flex;
+    flex-wrap: wrap;
+    .skill {
+      width: calc(50% - #{$gap / 2});
+
+      &:nth-child(odd) {
+        margin-right: $gap;
+      }
+
+      // not the first 2 children
+      &:not(:nth-child(-n + 2)) {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+.skill-name {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  line-height: 1.75;
+  color: $darkgrey;
+  margin-top: $margin4;
+}
+
+.skill-headline {
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: $darkgrey;
+  margin-top: $margin1;
+
+  &:first-child {
+    margin-top: 0px;
+  }
+}

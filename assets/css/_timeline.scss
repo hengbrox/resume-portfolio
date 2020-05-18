@@ -1,0 +1,118 @@
+$opticalAdjustment: 3px;
+
+.timeline {
+  position: relative;
+  height: 100%;
+
+  .timeline-line {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 1px;
+    height: calc(100% - 20px);
+    margin-top: $opticalAdjustment;
+    background: $border;
+  }
+
+  .timeline-items {
+    .timeline-item {
+      display: flex;
+
+      .timeline-dot {
+        flex-shrink: 0;
+        z-index: 2;
+        width: 21px;
+        height: 21px;
+        border-radius: 50%;
+        background: $highlight;
+        border: 5px solid #ffffff;
+
+        // optical adjustment in relation to typography on the right
+        transform: scale(1) translateY($opticalAdjustment);
+        transition: all 0.4s ease-out;
+        transition-timing-function: cubic-bezier(0.4, 1.41, 0.88, 1.6);
+
+        &.waiting-for-reveal {
+          transform: scale(0) translateY($opticalAdjustment);
+        }
+      }
+      .timeline-description-wrapper {
+        flex: 1 1 auto;
+        display: flex;
+
+        .timeline-station {
+          flex: 2;
+        }
+        .timeline-description {
+          flex: 3;
+        }
+      }
+      // space between items
+      &:not(:first-child) {
+        margin-top: $margin1;
+      }
+
+      // space between direct children only
+      & > *:not(:last-child) {
+        margin-right: $margin1;
+      }
+    }
+  }
+}
+
+.timeline-year {
+  color: $greytext;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: $highlight;
+}
+
+.timeline-job {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  line-height: 1.45;
+  color: $darkgrey;
+  margin-top: $margin4;
+  margin-right: $margin4;
+}
+
+.timeline-company {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  margin-top: $margin4;
+}
+
+.timeline-description {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+@media only screen and (max-width: 1410px) {
+  .timeline-description-wrapper {
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+
+  .timeline-description {
+    margin-top: $margin4;
+  }
+}
+
+@media only screen and (max-width: 935px) {
+  .timeline-line {
+    display: none;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    flex-shrink: 0;
+
+    .timeline-dot {
+      display: none;
+    }
+  }
+}

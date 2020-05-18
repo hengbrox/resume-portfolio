@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 80%;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  color: $greytext;
+}
+
+hr {
+  border-top: 1px solid $border;
+  opacity: 0;
+  margin-top: 8rem;
+  animation: fade-in-bottom 0.9s ease 1.8s forwards;
+}
+
+a {
+  text-decoration: none;
+  color: $highlight;
+}
+
+h2 {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  line-height: 1.45;
+  color: $darkgrey;
+}
+
+// Text Klassen
+.small-text {
+  color: $greytext;
+  font-size: 1.1rem;
+}
+
+.normal-text {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+p.normal-text + p.normal-text {
+  margin-top: $margin4;
+}
+
+.content-wrapper {
+  width: 90%;
+}
+
+// Sections
+.content-section {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  .content-section-left {
+    flex: 1 1 1px;
+    background-color: $light-grey-background;
+    text-align: right;
+    padding: 5rem 8rem;
+  }
+
+  .content-section-right {
+    flex: 3 1 1px;
+    padding: 5rem 8rem;
+    background-color: $lighter-grey-background;
+  }
+
+  // Alternating colors
+  &:nth-child(odd) {
+    .content-section-left {
+      background: $dark-grey-background;
+    }
+    .content-section-right {
+      background: #ffffff;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .content-section-left {
+    padding: 5rem 2rem;
+  }
+
+  .content-section-right {
+    padding: 5rem 2rem;
+  }
+}
+
+@media only screen and (max-width: 935px) {
+  .content-section {
+    flex-direction: column;
+
+    .content-section-left {
+      flex: 1 1 1px;
+      background-color: $light-grey-background;
+      text-align: left;
+      padding: 5rem 2rem 3.3rem 2rem;
+    }
+
+    .content-section-right {
+      flex: 3 1 1px;
+      padding: 5rem 2rem;
+      background-color: $lighter-grey-background;
+
+      &:not(:nth-child(-n + 1)) {
+        background-color: #ffffff;
+      }
+    }
+  }
+  .content-wrapper {
+    width: 96%;
+    margin: auto;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}

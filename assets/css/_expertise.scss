@@ -1,0 +1,68 @@
+.expertise-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  .expertise-item {
+    $column-gap: 24px;
+    flex-basis: calc(50% - #{$column-gap / 2});
+    display: flex;
+    flex-wrap: wrap;
+
+    .expertise-icon {
+      flex: 0 0 37px;
+      color: $highlight;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .expertise-description {
+      flex: 1 1 1px;
+
+      h4 {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        color: $darkgrey;
+      }
+
+      p {
+        font-size: 1.2rem;
+        font-weight: 400;
+        line-height: 1.75;
+        margin-top: $margin4;
+      }
+    }
+
+    @media only screen and (min-width: 1401px) {
+      // adding margin-top except the first 2 children
+      &:not(:nth-child(-n + 2)) {
+        margin-top: $margin2;
+      }
+
+      // adding margin-right to the odd columns
+      &:nth-child(odd) {
+        margin-right: $column-gap;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .expertise-list {
+    flex-direction: column;
+
+    .expertise-item {
+      // adding margin-top except the first child
+      &:not(:first-child) {
+        margin-top: $margin2;
+      }
+    }
+  }
+}
+
+// // todo: ggf löschen
+// @media (max-width: 700px) {
+//   .expertise-list {
+//     padding-left: 8%;
+//   }
+// }
